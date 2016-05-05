@@ -150,6 +150,9 @@ joinset<-arrange(joinset, Subject, Activity)
 #save master set
 write.csv(joinset, file="fullSet.csv")
 
+#for submission
+write.table(joinset, file="fullSet.txt", row.names = FALSE)
+
 #both subject and feature are factors for grouping below
 joinset$Subject<-sapply(joinset$Subject, as.factor)
 
@@ -166,3 +169,6 @@ for(i in 3:length(names(summary)))names(summary)[i]<-paste0("groupAVG_", names(s
 
 #save summary set
 write.csv(summary, file="summary.csv")
+
+#for submission
+write.table(summary, file="summary.txt", row.names = FALSE)
